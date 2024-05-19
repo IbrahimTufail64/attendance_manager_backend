@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
-import { prisma } from "../Models/Users";
+import { prisma } from "../Models/Prisma_Client";
 import jwt from 'jsonwebtoken';
 import asyncHandler from 'express-async-handler';
-import { User } from "../Models/Users";  // Make sure to import your User model
+// import { User } from "../Models/Prisma_Client";  // Make sure to import your User model
 
 export const authMiddleware = asyncHandler(async (req: any, res: Response, next: NextFunction) => {
   let token;
