@@ -2,7 +2,7 @@ import express from 'express';
 
 import {authMiddleware} from  '../middleware/authMiddleware';
 import { edit_photo, fetch_attendance, markAttendance, markLeave } from '../controllers/UserPanelCtrl';
-import {  changeStatus, createAttendance, deleteAttendance, getRecords, getSingleRecord } from '../controllers/AdminPanel';
+import {  changeStatus, createAttendance, deleteAttendance, getRecords, getSingleRecord, printSingleRecord } from '../controllers/AdminPanel';
 let appRouter = express.Router();
 
 appRouter.get('/mark_attendance',authMiddleware, markAttendance);
@@ -16,6 +16,7 @@ appRouter.get('/admin/get_record/:id',authMiddleware, getSingleRecord);
 appRouter.get('/admin/change_status/:id',authMiddleware, changeStatus);
 appRouter.delete('/admin/delete_attendance/:id',authMiddleware, deleteAttendance);
 appRouter.post('/admin/create_attendance/:id',authMiddleware, createAttendance);
+appRouter.post('/admin/get_print_record/:id',authMiddleware, printSingleRecord);
 
 
 export default appRouter;
